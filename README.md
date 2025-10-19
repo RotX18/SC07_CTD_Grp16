@@ -1,6 +1,6 @@
-# 🎈 Blank app template
+# SUTD SC07 CTD GROUP 16
 
-A simple Streamlit app template for you to modify!
+## Web app mad eusing streamlit
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
 
@@ -8,12 +8,12 @@ A simple Streamlit app template for you to modify!
 
 1. Install the requirements
 
-   ```
+   ```psh
    $ pip install -r requirements.txt
    ```
 
 2. Run the app
 
-   ```
-   $ streamlit run streamlit_app.py
+   ```psh
+   $ streamlit run ./pages/home.py
    ```

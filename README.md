@@ -15,5 +15,5 @@
 2. Run the app
 
    ```psh
-   $ streamlit run ./pages/home.py
+   $ streamlit run streamlit_app.py
    ```

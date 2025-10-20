@@ -1,6 +1,44 @@
 # Utility file for fucntions used across multiple files
+import pyrebase
 import datetime
 userCart = []
+
+#Logger
+def log(msg: str):
+	print(f"LOG ({datetime.datetime.now()}): {msg}")
+
+###DATABASE CODE
+#initialise and get menu
+firebaseConfig = {
+    "apiKey": "CHECK TELEGRAM GROUP",
+    "authDomain": "ctdsoftserve.firebaseapp.com",
+    "databaseURL": "https://ctdsoftserve-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "projectId": "ctdsoftserve",
+    "storageBucket": "ctdsoftserve.firebasestorage.app",
+    "messagingSenderId": "903789925629",
+    "appId": "1:903789925629:web:4f7351495dea0f8897da94",
+    "measurementId": "G-BXPJNNS26B"
+}
+firebase = pyrebase.initialize_app(firebaseConfig)
+db = firebase.database()
+
+def getMenu():
+	menu = db.child("menu").get().val()
+	log("Menu retrieved successfully.")
+	return menu
+
+def postOrderToDB(selected_size, selected_flavour, selected_toppings, selected_sauces):
+	log(f"postOrderToDB called, payload: {order_data}")
+	order_data = {
+        "size": selected_size,
+        "flavour": selected_flavour,
+        "toppings": selected_toppings,
+        "sauces": selected_sauces
+    }
+	db.child("orders").push(order_data)
+	log(f"{order_data} posted to DB")
+
+
 
 class Product:
 	#Product class to represent an item in the cart
@@ -42,3 +80,4 @@ def generateReceipt():
 		res[i.name] = [i.discountedPrice, i.discount, i.usualPrice]
 	return res
 	
+

@@ -1,5 +1,4 @@
 import streamlit as st
-import res.Utils as utils
 
 pages = [
 	 st.Page("./pages/Home.py", title = "Home"),

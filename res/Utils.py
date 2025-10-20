@@ -8,7 +8,7 @@ def log(msg: str):
 	print(f"LOG ({datetime.datetime.now()}): {msg}")
 
 ###DATABASE CODE
-#initialise and get menu
+#initialise database
 firebaseConfig = {
     "apiKey": "CHECK TELEGRAM GROUP",
     "authDomain": "ctdsoftserve.firebaseapp.com",
@@ -23,6 +23,7 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 db = firebase.database()
 
 def getMenu():
+	#get menu
 	menu = db.child("menu").get().val()
 	log("Menu retrieved successfully.")
 	return menu

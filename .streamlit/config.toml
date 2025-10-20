@@ -1,0 +1,7 @@
+[theme]
+base = "light"
+backgroundColor = "hotpink"
+textColor = "White"
+#error is a bug, website still works despite it
+buttonRadius = "full"
+font="'DM Sans':https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"

@@ -1,7 +1,8 @@
-from res import Utils as utils
 import streamlit as st
+import res.Utils as utils
 
-utils.log("Loaded Menu page")
+utils.log("Menu.py loaded.")
+
 st.title("AOMGOM Empire")
 st.caption("Enjoy your-ghurt here :3")
 

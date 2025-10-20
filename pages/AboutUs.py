@@ -1,4 +1,7 @@
 import streamlit as st
+import res.Utils as utils
+
+utils.log("AboutUs.py loaded.")
 
 col1, col2 = st.columns(2, vertical_alignment="center")
 with col1:

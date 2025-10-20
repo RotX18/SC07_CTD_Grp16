@@ -1,4 +1,7 @@
 import streamlit as st
+import res.Utils as utils
+
+utils.log("Ingredients.py loaded.")
 
 col1, col2 = st.columns(2)
 
@@ -10,8 +13,8 @@ with col1:
 
 		**Core Ingredients**  
 		We believe simple is best. Here are the core ingredients used across all our yogurt varieties:
-		- Milk: Pasteurised, locally sourced milk
-		- Live & active cultures: Beneficial bacteria (s. thermophilus and l.bulgarius) create our SIGNATURE tang and texture 
+		- **Milk**: Pasteurised, locally sourced milk
+		- **Live & active cultures**: Beneficial bacteria (s. thermophilus and l.bulgarius) create our SIGNATURE tang and texture 
 		"""
 	)
 

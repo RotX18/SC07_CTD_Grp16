@@ -68,15 +68,3 @@ if st.button("Place Order"):
 	st.success("Order placed! Thank you for your purchase.")
 	utils.postOrderToDB(selected_size, selected_flavour, selected_toppings, selected_sauces)
 	
-st.markdown(
-    """
-	<style>
-	 	.st-ex{
-			color: hotpink !important
-        }
-		.st-f0{
-			color: hotpink !important
-        }
-    </style>
-	""", unsafe_allow_html=True
-)

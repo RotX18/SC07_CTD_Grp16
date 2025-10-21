@@ -1,6 +1,6 @@
 [theme]
 base = "light"
-primaryColor = "deeppink"
+primaryColor = "white"
 backgroundColor = "hotpink"
 secondaryBackgroundColor = "#ff87d1"
 textColor = "White"

@@ -4,7 +4,7 @@ import res.Utils as utils
 
 utils.log("Menu.py loaded.")
 
-st.title("AOMGOM Empire")
+st.title("AOMGOM Empire", anchor=False)
 st.caption("Enjoy your-ghurt here :3")
 
 menu = utils.getMenu()
@@ -23,32 +23,23 @@ if is_student == "Yes":
 sizes = list(menu["sizes"].keys())
 selected_size = st.selectbox("Choose size", sizes)
 
+#FLAVOURS 
 flavours = [f for f, info in menu["flavours"].items() if info["available"]]
 selected_flavour = st.selectbox("Choose flavour", flavours)
 
+#TOPPINGS 
 topping_limit = menu["sizes"][selected_size]["toppings_included"]
 available_toppings = [t for t, info in menu["toppings"].items() if info["available"]]
 selected_toppings = st.multiselect(
     f"Choose toppings (up to {topping_limit}, additional toppings + 0.5$ each))", available_toppings, max_selections=10
 )
 
+#SAUCE
 sauce_limit = menu["sizes"][selected_size]["sauces_included"]
 available_sauces = [s for s, info in menu["sauces"].items() if info["available"]]
 selected_sauces = st.multiselect(
     f"Choose sauces (up to {sauce_limit}", available_sauces, max_selections=sauce_limit,
 )
-
-st.markdown(
-    """
-    <style>
-    .stMultiSelect{
-        background-color: "White";
-        text-color: "HotPink";
-    }
-    </style>
-    """, unsafe_allow_html=True
-)
-
 
 # TOTAL PRICE CALCULATION
 base_price = menu["sizes"][selected_size]["price"]
@@ -58,7 +49,7 @@ st.metric("Total Price", f"${total:.2f}")
 
 
 # ORDER SUMMARY SECTION
-st.subheader("Order Summary")
+st.subheader("Order Summary", anchor=False)
 st.write(f"Size: {selected_size.title()} — ${total:.2f}")
 st.write(f"Flavour: {selected_flavour.title()}")
 st.write(f"Toppings: {', '.join(selected_toppings) if selected_toppings else 'None'}")
@@ -77,3 +68,12 @@ if st.button("Place Order"):
 	st.success("Order placed! Thank you for your purchase.")
 	utils.postOrderToDB(selected_size, selected_flavour, selected_toppings, selected_sauces)
 	
+st.markdown(
+    """
+	<style>
+		.st-ex{
+			color: hotpink !important
+        }
+    </style>
+	""", unsafe_allow_html=True
+)

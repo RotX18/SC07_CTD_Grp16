@@ -6,7 +6,7 @@ utils.log("Ingredients.py loaded.")
 col1, col2 = st.columns(2)
 
 with col1:
-	st.title("INGREDIENTS")
+	st.title("INGREDIENTS", anchor=False)
 	st.markdown(
 		"""
 		All our yogurts and condiments are prepared with care and comfort. For you freshest experience, we ensure that our ingredients are prepared FRESHLY and HANDLED properly.

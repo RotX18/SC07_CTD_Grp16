@@ -10,7 +10,7 @@ def log(msg: str):
 ###DATABASE CODE
 #initialise database
 firebaseConfig = {
-    "apiKey": "CHECK TELEGRAM GROUP",
+    "apiKey": "AIzaSyDgUvjduJCN7uwEGziKFz4KWtodjpmDl3Q",
     "authDomain": "ctdsoftserve.firebaseapp.com",
     "databaseURL": "https://ctdsoftserve-default-rtdb.asia-southeast1.firebasedatabase.app",
     "projectId": "ctdsoftserve",
@@ -29,27 +29,27 @@ def getMenu():
 	return menu
 
 def postOrderToDB(selected_size, selected_flavour, selected_toppings, selected_sauces):
-	log(f"postOrderToDB called, payload: {order_data}")
+	order_data = {}
 	order_data = {
         "size": selected_size,
         "flavour": selected_flavour,
         "toppings": selected_toppings,
         "sauces": selected_sauces
     }
+	userCart.append(order_data)
 	db.child("orders").push(order_data)
 	log(f"{order_data} posted to DB")
 
-
-
 class Product:
 	#Product class to represent an item in the cart
-	def __init__(self, name: str, price: float, discount: float = 0.0):
+	def __init__(self, name: str, price: float, id: str, discount: float = 0.0):
 		self.name = name
 		self.usualPrice = price
+		self.id = id
 		#default discount is 0.0, percentage
 		self.discount = discount
-
 		self.applySeasonalDiscounts()
+		self.applyStudentDiscount()
 		self.discountedPrice = (self.usualPrice * (1-(self.discount/100)))
 
 	def __str__(self):
@@ -70,7 +70,18 @@ class Product:
 			#for every day in the discounteed dates, apply the discount if today is a seasonal date
 			if (today == day[0]):
 				self.discount += day[1]
-				break
+				return day[1]
+	
+	def applyStudentDiscount(self):
+		is_valid = True
+		if len(self.id) != 7 or not self.id.startswith("1010") or not self.id[4:].isdigit():
+			is_valid = False
+		if is_valid:
+			self.discount = 10.0
+		return is_valid
+
+		
+
 
 def generateReceipt():
 	#receipt is in the form {

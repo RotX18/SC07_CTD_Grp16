@@ -27,17 +27,4 @@ with col1:
 		)
 
 with col2:
-	st.markdown(
-		"""
-		<img class="homePic" src="https://i.redd.it/wnol45xclka91.jpg">
-		<style>
-		.homePic{
-			width: 100%;
-			height: 100%;
-			clip-path: circle(50%); !important
-			overflow: hidden;
-			object-fit:cover
-		}
-		</style>
-		""", unsafe_allow_html=True
-	)
+	st.image("res/img/logo.png", use_container_width=True)

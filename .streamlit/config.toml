@@ -1,6 +1,7 @@
 [theme]
 base = "light"
 backgroundColor = "hotpink"
+secondaryBackgroundColor = "#ff87d1"
 textColor = "White"
 #error is a bug, website still works despite it
 buttonRadius = "full"

@@ -12,6 +12,12 @@ if not menu:
     st.error("Menu not available")
     st.stop()
 
+# Student id
+is_student = st.radio("Are you a student?", ("Yes", "No"))
+if is_student == "Yes":
+    student_id = st.text_input("Enter your student ID:")
+
+
 
 sizes = list(menu["sizes"].keys())
 selected_size = st.selectbox("Choose size", sizes)
@@ -28,7 +34,18 @@ selected_toppings = st.multiselect(
 sauce_limit = menu["sizes"][selected_size]["sauces_included"]
 available_sauces = [s for s, info in menu["sauces"].items() if info["available"]]
 selected_sauces = st.multiselect(
-    f"Choose sauces (up to {sauce_limit}", available_sauces, max_selections=sauce_limit
+    f"Choose sauces (up to {sauce_limit}", available_sauces, max_selections=sauce_limit,
+)
+
+st.markdown(
+    """
+    <style>
+    .stMultiSelect{
+        background-color: "White";
+        text-color: "HotPink";
+    }
+    </style>
+    """, unsafe_allow_html=True
 )
 
 
@@ -46,12 +63,16 @@ st.write(f"Flavour: {selected_flavour.title()}")
 st.write(f"Toppings: {', '.join(selected_toppings) if selected_toppings else 'None'}")
 st.write(f"Sauces: {', '.join(selected_sauces) if selected_sauces else 'None'}")
 
-promotion = menu["sizes"][selected_size].get("promotion")
-if promotion:
-    st.info(f"Promotion: {promotion}")
+order = utils.Product(selected_size, total, student_id)
+promotionSeason = order.applySeasonalDiscounts()
+promotionStudent = order.applyStudentDiscount()
+
+if promotionStudent:
+    st.info("Valid Student ID✅ : 10% Student Discount applied ><")
+afterDiscounted = order.discountedPrice()
+st.metric(f"Discounted Price {afterDiscounted}")
 
 if st.button("Place Order"):
-	st.success("✅ Order placed! Thank you for your purchase.")
-	# Optional: save order to Firebase
-	utils.postToDB(selected_size, selected_flavour, selected_toppings, selected_sauces)
+	st.success("Order placed! Thank you for your purchase.")
+	utils.postOrderToDB(selected_size, selected_flavour, selected_toppings, selected_sauces)
 	

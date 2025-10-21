@@ -1,6 +1,6 @@
 # SUTD SC07 CTD GROUP 16
 
-## Web app mad eusing streamlit
+## Web app made using streamlit
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
 

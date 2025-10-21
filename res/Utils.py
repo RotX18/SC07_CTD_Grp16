@@ -10,7 +10,7 @@ def log(msg: str):
 ###DATABASE CODE
 #initialise database
 firebaseConfig = {
-    "apiKey": "AIzaSyDgUvjduJCN7uwEGziKFz4KWtodjpmDl3Q",
+    "apiKey": "CHECK TELEGRAM GROUP",
     "authDomain": "ctdsoftserve.firebaseapp.com",
     "databaseURL": "https://ctdsoftserve-default-rtdb.asia-southeast1.firebasedatabase.app",
     "projectId": "ctdsoftserve",

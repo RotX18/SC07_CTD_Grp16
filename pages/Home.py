@@ -1,5 +1,5 @@
 import streamlit as st
-import res.Utils as utils
+import res.utils as utils
 
 utils.log("Home.py loaded.")
 

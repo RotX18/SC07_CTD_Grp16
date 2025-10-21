@@ -1,6 +1,6 @@
 import streamlit as st
 import math
-import res.Utils as utils
+import res.utils as utils
 
 utils.log("Menu.py loaded.")
 
@@ -71,7 +71,10 @@ if st.button("Place Order"):
 st.markdown(
     """
 	<style>
-		.st-ex{
+	 	.st-ex{
+			color: hotpink !important
+        }
+		.st-f0{
 			color: hotpink !important
         }
     </style>

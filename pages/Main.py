@@ -2,7 +2,7 @@ import streamlit as st
 import res.Utils as utils
 
 
-st.image("res/img/logo.png", use_container_width=True)
+st.image("res/img/logo.png", width="stretch")
 
 pages = {
     "": [

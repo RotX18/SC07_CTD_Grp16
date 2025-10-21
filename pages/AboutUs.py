@@ -27,4 +27,4 @@ with col1:
 		)
 
 with col2:
-	st.image("res/img/logo.png", use_container_width=True)
+	st.image("res/img/logo.png", width="stretch")

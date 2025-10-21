@@ -1,4 +1,5 @@
 import streamlit as st
+import math
 import res.Utils as utils
 
 utils.log("Menu.py loaded.")
@@ -69,8 +70,8 @@ promotionStudent = order.applyStudentDiscount()
 
 if promotionStudent:
     st.info("Valid Student ID✅ : 10% Student Discount applied ><")
-afterDiscounted = order.discountedPrice()
-st.metric(f"Discounted Price {afterDiscounted}")
+afterDiscounted = order.discountedPrice
+st.metric(label="Discounted Price ", value=f"${afterDiscounted:.2f}")
 
 if st.button("Place Order"):
 	st.success("Order placed! Thank you for your purchase.")

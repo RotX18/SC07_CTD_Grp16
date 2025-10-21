@@ -11,7 +11,7 @@ with col1:
 
 	#Order now button
 	if st.button("Order Now!", key="OrderButton"):
-		st.switch_page("Menu.py")
+		st.switch_page("./pages/Menu.py")
 	st.markdown(
 		"""
 		<style>
@@ -25,7 +25,7 @@ with col1:
 	)
 
 with col2:
-	st.image("res/img/aomgom_home.png", use_container_width=True)
+	st.image("res/img/aomgom_home.png", width="stretch")
 	# st.markdown(
 	# 	"""
 	# 	<img class="homePic" src="https://static.wikitide.net/hellmetwiki/6/60/Panko.png">

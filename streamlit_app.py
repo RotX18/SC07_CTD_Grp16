@@ -8,4 +8,14 @@ pages = [
 	]
 
 st.navigation(pages, position="top").run()
-st.logo("./res/img/hi.jpg", size="large")
+st.logo("./res/img/logo.png", size="large")
+st.markdown(
+	"""
+	<style>
+		.stLogo{
+			height: 6rem;
+			width: auto;
+		}
+	</style>
+	""", unsafe_allow_html=True
+)

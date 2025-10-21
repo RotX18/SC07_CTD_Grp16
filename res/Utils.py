@@ -42,10 +42,11 @@ def postOrderToDB(selected_size, selected_flavour, selected_toppings, selected_s
 
 class Product:
 	#Product class to represent an item in the cart
-	def __init__(self, name: str, price: float, id: str, discount: float = 0.0):
+	def __init__(self, name: str, price: float, uid: str, discount: float = 0.0):
+		#on initialise
 		self.name = name
 		self.usualPrice = price
-		self.id = id
+		self.id = uid
 		#default discount is 0.0, percentage
 		self.discount = discount
 		self.applySeasonalDiscounts()
@@ -60,7 +61,7 @@ class Product:
 		discountDates = [
 			#new years, 20% discount
 			[datetime.date(datetime.datetime.now().year, 1, 1), 20.0],
-
+			
 			#christmas, 25% discount
 			[datetime.date(datetime.datetime.now().year, 12, 25), 25],
 		]
